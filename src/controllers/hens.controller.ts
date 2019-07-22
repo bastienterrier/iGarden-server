@@ -1,13 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { HensService } from '../hens/hens.service';
+import { EggsCollect } from 'src/hens/hens.interface';
 
 @Controller('hens')
 export class HensController {
   constructor(private readonly hensService: HensService) {}
 
   @Get('last')
-  getLastCollect(): any {
-    return this.hensService.getLastCollect();
+  async getLastCollect(): Promise<any> {
+    return await this.hensService.getLastCollect();
+  }
+
+  @Post()
+  async addHensCollect(@Body() data: EggsCollect): Promise<any> {
+    return await this.hensService.addCollect(data);
   }
 
   @Get('all')

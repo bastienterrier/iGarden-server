@@ -1,13 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { CRUD } from 'src/database/crud';
+import { EggsCollect } from './hens.interface';
 
 @Injectable()
 export class HensService {
-  getLastCollect(): any {
-    return {
-      date: '2019-07-20T14:50:05.121Z',
-      number: 5,
-      picker: 'Cyril',
-    };
+  constructor(private readonly crud: CRUD) {
+    crud.connect();
+  }
+  async getLastCollect(): Promise<any> {
+    return await this.crud.readLast('hens');
+  }
+  async addCollect(data: EggsCollect): Promise<any> {
+    return await this.crud.writeData('hens', data);
   }
   getAllCollect(): any {
     return [
