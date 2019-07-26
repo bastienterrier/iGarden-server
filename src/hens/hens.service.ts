@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CRUD } from 'src/database/crud';
+import { CRUD } from '../database/crud';
 import { EggsCollect } from './hens.interface';
 
 @Injectable()

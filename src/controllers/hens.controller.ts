@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { HensService } from '../hens/hens.service';
-import { EggsCollect } from 'src/hens/hens.interface';
+import { EggsCollect } from '../hens/hens.interface';
 
 @Controller('hens')
 export class HensController {
