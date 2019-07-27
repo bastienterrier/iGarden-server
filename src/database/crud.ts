@@ -43,6 +43,20 @@ export class CRUD {
       });
   }
 
+  async readAll(source: string): Promise<any> {
+    const model = this.getModel(source);
+
+    return await model
+      .find({})
+      .sort({ date: -1 })
+      .then(res => {
+        return res;
+      })
+      .catch(err => {
+        throw err;
+      });
+  }
+
   async writeData(source: string, data: any): Promise<any> {
     const model = this.getModel(source);
 
