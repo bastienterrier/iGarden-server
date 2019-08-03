@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
-import { GardenCollect } from 'src/garden/garden.interface';
-import { GardenService } from 'src/garden/garden.service';
+import { GardenCollect } from '../garden/garden.interface';
+import { GardenService } from '../garden/garden.service';
 
 @Controller('gardens')
 export class GardenController {
