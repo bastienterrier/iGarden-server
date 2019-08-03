@@ -2,7 +2,7 @@ interface GardenSummary {
   action: string;
   type: string;
   value: any;
-  comment: string;
+  unit: string;
 }
 
 export interface GardenCollect {
