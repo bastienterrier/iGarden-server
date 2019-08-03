@@ -10,7 +10,7 @@ FROM node:12.6.0-alpine
 RUN mkdir -p /app
 COPY package.json /app/package.json
 WORKDIR /app
-RUN npm install --production
+RUN npm install
 COPY --from=node /src/app/dist /app/src
 RUN ls /app
 RUN ls /app/src
