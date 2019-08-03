@@ -5,3 +5,9 @@ export const hensSchema = new mongoose.Schema({
   date: Date,
   number: Number,
 });
+
+export const gardenSchema = new mongoose.Schema({
+  user: String,
+  date: Date,
+  summary: Object,
+});

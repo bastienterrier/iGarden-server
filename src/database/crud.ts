@@ -1,17 +1,21 @@
-import { remoteHens } from './models';
+import { remoteHens, remoteGarden } from './models';
 import { connection } from './connection';
 
 export class CRUD {
   private readonly remoteHens;
+  private readonly remoteGarden;
 
   constructor() {
     this.remoteHens = remoteHens;
+    this.remoteGarden = remoteGarden;
   }
 
   private getModel(source: string) {
     switch (source) {
       case 'hens':
         return this.remoteHens;
+      case 'gardens':
+        return this.remoteGarden;
       default:
         return null;
     }
@@ -33,7 +37,7 @@ export class CRUD {
     const model = this.getModel(source);
 
     return await model
-      .findOne({})
+      .findOne({}, '-_id -__v')
       .sort({ date: -1 })
       .then(res => {
         return res;
@@ -47,7 +51,7 @@ export class CRUD {
     const model = this.getModel(source);
 
     return await model
-      .find({})
+      .find({}, '-_id -__v')
       .sort({ date: -1 })
       .then(res => {
         return res;
