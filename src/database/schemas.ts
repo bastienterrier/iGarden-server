@@ -11,3 +11,8 @@ export const gardenSchema = new mongoose.Schema({
   date: Date,
   summary: Object,
 });
+
+export const calendarSchema = new mongoose.Schema({
+  user: String,
+  date: Date,
+});

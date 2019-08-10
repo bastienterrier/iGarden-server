@@ -1,13 +1,15 @@
-import { remoteHens, remoteGarden } from './models';
+import { remoteHens, remoteGarden, remoteCalendar } from './models';
 import { connection } from './connection';
 
 export class CRUD {
   private readonly remoteHens;
   private readonly remoteGarden;
+  private readonly remoteCalendar;
 
   constructor() {
     this.remoteHens = remoteHens;
     this.remoteGarden = remoteGarden;
+    this.remoteCalendar = remoteCalendar;
   }
 
   private getModel(source: string) {
@@ -16,6 +18,8 @@ export class CRUD {
         return this.remoteHens;
       case 'gardens':
         return this.remoteGarden;
+      case 'calendars':
+        return this.remoteCalendar;
       default:
         return null;
     }
@@ -66,6 +70,15 @@ export class CRUD {
 
     return await model
       .insertMany([data])
+      .then(res => res)
+      .catch(err => err);
+  }
+
+  async removeData(source: string, data: any): Promise<any> {
+    const model = this.getModel(source);
+
+    return await model
+      .deleteOne(data)
       .then(res => res)
       .catch(err => err);
   }
