@@ -17,8 +17,11 @@ export class CalendarController {
   }
 
   @Delete()
-  async removeCalendarCollect(@Body() data: CalendarCollect): Promise<any> {
-    return await this.calendarService.removeCollect(data);
+  async removeCalendarCollect(
+    @Body()
+    payload: CalendarCollect,
+  ): Promise<any> {
+    return await this.calendarService.removeCollect(payload);
   }
 
   @Get('all')
