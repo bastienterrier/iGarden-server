@@ -1,6 +1,5 @@
 import { remoteHens, remoteGarden, remoteCalendar } from './models';
 import { connection } from './connection';
-import { CalendarCollect } from 'src/calendar/calendar.interface';
 
 export class CRUD {
   private readonly remoteHens;
