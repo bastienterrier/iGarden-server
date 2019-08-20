@@ -7,6 +7,8 @@ import { GardenService } from './garden/garden.service';
 import { AppController } from './controllers/app.controller';
 import { CalendarController } from './controllers/calendar.controller';
 import { CalendarService } from './calendar/calendar.service';
+import { ToDoController } from './controllers/todo.controller';
+import { ToDoService } from './todo/todo.service';
 
 @Module({
   imports: [],
@@ -15,7 +17,8 @@ import { CalendarService } from './calendar/calendar.service';
     GardenController,
     AppController,
     CalendarController,
+    ToDoController,
   ],
-  providers: [HensService, GardenService, CalendarService, CRUD],
+  providers: [HensService, GardenService, CalendarService, ToDoService, CRUD],
 })
 export class AppModule {}

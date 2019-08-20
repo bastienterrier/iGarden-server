@@ -16,3 +16,11 @@ export const calendarSchema = new mongoose.Schema({
   user: String,
   date: Date,
 });
+
+export const todoSchema = new mongoose.Schema({
+  title: String,
+  state: String,
+  progress: Number,
+  date: Date,
+  description: String,
+});
