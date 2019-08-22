@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Patch } from '@nestjs/common';
-import { SettingsService } from 'src/settings/settings.service';
-import { User } from 'src/settings/settings.interface';
+import { SettingsService } from '../settings/settings.service';
+import { User } from '../settings/settings.interface';
 
 @Controller('settings')
 export class SettingsController {
