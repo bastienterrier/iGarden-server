@@ -9,6 +9,8 @@ import { CalendarController } from './controllers/calendar.controller';
 import { CalendarService } from './calendar/calendar.service';
 import { ToDoController } from './controllers/todo.controller';
 import { ToDoService } from './todo/todo.service';
+import { SettingsController } from './controllers/settings.controller';
+import { SettingsService } from './settings/settings.service';
 
 @Module({
   imports: [],
@@ -18,7 +20,15 @@ import { ToDoService } from './todo/todo.service';
     AppController,
     CalendarController,
     ToDoController,
+    SettingsController,
   ],
-  providers: [HensService, GardenService, CalendarService, ToDoService, CRUD],
+  providers: [
+    HensService,
+    GardenService,
+    CalendarService,
+    ToDoService,
+    SettingsService,
+    CRUD,
+  ],
 })
 export class AppModule {}

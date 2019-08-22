@@ -24,3 +24,9 @@ export const todoSchema = new mongoose.Schema({
   date: Date,
   description: String,
 });
+
+export const userSchema = new mongoose.Schema({
+  name: String,
+  date: Date,
+  color: String,
+});

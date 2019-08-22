@@ -23,6 +23,6 @@ export class ToDoController {
 
   @Patch(':title')
   async updateOneTask(@Param() params, @Body() data: any): Promise<any> {
-    return await this.toDoService.updateOneTask(params.title, data);
+    return await this.toDoService.updateOneTask(decodeURI(params.title), data);
   }
 }

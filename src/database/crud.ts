@@ -1,4 +1,10 @@
-import { remoteHens, remoteGarden, remoteCalendar, remoteTodo } from './models';
+import {
+  remoteHens,
+  remoteGarden,
+  remoteCalendar,
+  remoteTodo,
+  remoteUser,
+} from './models';
 import { connection } from './connection';
 
 export class CRUD {
@@ -6,12 +12,14 @@ export class CRUD {
   private readonly remoteGarden;
   private readonly remoteCalendar;
   private readonly remoteTodo;
+  private readonly remoteUser;
 
   constructor() {
     this.remoteHens = remoteHens;
     this.remoteGarden = remoteGarden;
     this.remoteCalendar = remoteCalendar;
     this.remoteTodo = remoteTodo;
+    this.remoteUser = remoteUser;
   }
 
   private getModel(source: string) {
@@ -24,6 +32,8 @@ export class CRUD {
         return this.remoteCalendar;
       case 'todos':
         return this.remoteTodo;
+      case 'users':
+        return this.remoteUser;
       default:
         return null;
     }
@@ -83,6 +93,15 @@ export class CRUD {
 
     return await model
       .deleteOne(data)
+      .then(res => res)
+      .catch(err => err);
+  }
+
+  async findOne(source: string, data: any): Promise<any> {
+    const model = this.getModel(source);
+
+    return await model
+      .findOne(data, '-_id -__v')
       .then(res => res)
       .catch(err => err);
   }
