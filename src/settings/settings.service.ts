@@ -4,9 +4,7 @@ import { User } from './settings.interface';
 
 @Injectable()
 export class SettingsService {
-  constructor(private readonly crud: CRUD) {
-    crud.connect();
-  }
+  constructor(private readonly crud: CRUD) {}
   async getAllUsers(): Promise<User[]> {
     return (await this.crud.readAll('users')) as User[];
   }

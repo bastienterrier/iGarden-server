@@ -4,9 +4,7 @@ import { EggsCollect } from './hens.interface';
 
 @Injectable()
 export class HensService {
-  constructor(private readonly crud: CRUD) {
-    crud.connect();
-  }
+  constructor(private readonly crud: CRUD) {}
   async getLastCollect(): Promise<any> {
     return await this.crud.readLast('hens');
   }

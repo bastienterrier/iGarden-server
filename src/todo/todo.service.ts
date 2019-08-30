@@ -4,9 +4,7 @@ import { ToDoInterface } from './todo.interface';
 
 @Injectable()
 export class ToDoService {
-  constructor(private readonly crud: CRUD) {
-    crud.connect();
-  }
+  constructor(private readonly crud: CRUD) {}
   async getLastTask(): Promise<any> {
     return await this.crud.readLast('todos');
   }

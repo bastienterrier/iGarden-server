@@ -4,9 +4,7 @@ import { CalendarCollect } from './calendar.interface';
 
 @Injectable()
 export class CalendarService {
-  constructor(private readonly crud: CRUD) {
-    crud.connect();
-  }
+  constructor(private readonly crud: CRUD) {}
   async getLastCollect(): Promise<any> {
     return await this.crud.readLast('calendars');
   }

@@ -4,9 +4,7 @@ import { GardenCollect } from './garden.interface';
 
 @Injectable()
 export class GardenService {
-  constructor(private readonly crud: CRUD) {
-    crud.connect();
-  }
+  constructor(private readonly crud: CRUD) {}
   async getLastCollect(): Promise<any> {
     return await this.crud.readLast('gardens');
   }

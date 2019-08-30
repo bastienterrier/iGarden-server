@@ -14,6 +14,10 @@ export class CRUD {
   private readonly remoteTodo;
   private readonly remoteUser;
 
+  async onModuleInit(): Promise<void> {
+    await this.connect();
+  }
+
   constructor() {
     this.remoteHens = remoteHens;
     this.remoteGarden = remoteGarden;
