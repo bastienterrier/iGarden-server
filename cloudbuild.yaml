@@ -17,6 +17,8 @@ steps:
         'gcr.io/$PROJECT_ID/i-garden',
         '--region',
         'europe-west1',
+        '--platform',
+        'managed',
       ]
 images:
   - gcr.io/$PROJECT_ID/i-garden
