@@ -11,6 +11,8 @@ import { ToDoController } from './controllers/todo.controller';
 import { ToDoService } from './todo/todo.service';
 import { SettingsController } from './controllers/settings.controller';
 import { SettingsService } from './settings/settings.service';
+import { MessageController } from './controllers/message.controller';
+import { MessageService } from './message/message.service';
 
 @Module({
   imports: [],
@@ -21,6 +23,7 @@ import { SettingsService } from './settings/settings.service';
     CalendarController,
     ToDoController,
     SettingsController,
+    MessageController,
   ],
   providers: [
     HensService,
@@ -28,6 +31,7 @@ import { SettingsService } from './settings/settings.service';
     CalendarService,
     ToDoService,
     SettingsService,
+    MessageService,
     CRUD,
   ],
 })

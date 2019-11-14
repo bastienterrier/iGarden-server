@@ -30,3 +30,9 @@ export const userSchema = new mongoose.Schema({
   date: Date,
   color: String,
 });
+
+export const messageSchema = new mongoose.Schema({
+  date: Date,
+  author: String,
+  message: String,
+});

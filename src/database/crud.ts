@@ -4,6 +4,7 @@ import {
   remoteCalendar,
   remoteTodo,
   remoteUser,
+  remoteMessage,
 } from './models';
 import { connection } from './connection';
 
@@ -13,6 +14,7 @@ export class CRUD {
   private readonly remoteCalendar;
   private readonly remoteTodo;
   private readonly remoteUser;
+  private readonly remoteMessage;
 
   async onModuleInit(): Promise<void> {
     await this.connect();
@@ -24,6 +26,7 @@ export class CRUD {
     this.remoteCalendar = remoteCalendar;
     this.remoteTodo = remoteTodo;
     this.remoteUser = remoteUser;
+    this.remoteMessage = remoteMessage;
   }
 
   private getModel(source: string) {
@@ -38,6 +41,8 @@ export class CRUD {
         return this.remoteTodo;
       case 'users':
         return this.remoteUser;
+      case 'messages':
+        return this.remoteMessage;
       default:
         return null;
     }
