@@ -13,6 +13,7 @@ import { SettingsController } from './controllers/settings.controller';
 import { SettingsService } from './settings/settings.service';
 import { MessageController } from './controllers/message.controller';
 import { MessageService } from './message/message.service';
+import { AppGateway } from './app.gateway';
 
 @Module({
   imports: [],
@@ -33,6 +34,7 @@ import { MessageService } from './message/message.service';
     SettingsService,
     MessageService,
     CRUD,
+    AppGateway,
   ],
 })
 export class AppModule {}

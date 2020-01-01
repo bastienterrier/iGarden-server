@@ -56,7 +56,7 @@ export class CRUD {
       })
       .catch(err => {
         // tslint:disable-next-line: no-console
-        console.log(err);
+        console.error(err);
       });
   }
 
